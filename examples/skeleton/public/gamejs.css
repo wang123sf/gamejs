@@ -1,0 +1,15 @@
+body{
+  background:#fff;
+  color:#222;
+  margin:1em 0 2em 6em;
+  padding:0;
+}
+#gjs-loader {
+   width: 50%;
+   height: 50%;
+   background: url('./ajax-loader.gif');
+}
+#gjs-canvas:-moz-full-screen {
+   height: 100%;
+   width: 100%;
+}
