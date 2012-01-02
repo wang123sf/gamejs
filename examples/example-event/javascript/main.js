@@ -17,11 +17,10 @@ function main() {
    var starImage = gamejs.image.load('images/sparkle.png');
 
    var instructionFont = new gamejs.font.Font('30px monospace');
-   var displayRect = display.rect;
    var sparkles = [];
 
    function tick(msDuration) {
-
+      var displayRect = display.rect;
       // handle key / mouse events
       gamejs.event.get().forEach(function(event) {
          if (event.type === gamejs.event.KEY_UP) {
