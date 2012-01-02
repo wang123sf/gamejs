@@ -24,6 +24,20 @@ $(document).ready(jsdocSetup);
             <div class="fileoverview">
                 <p>Methods to create, access and manipulate the display Surface.</p>
 
+<h2>Fullscreen mode</h2>
+
+<p>is enabled by a checkbox with the DOM id <code>gjs-fullscreen-toggle</code>. This is
+to prevent malicious scripts from triggering fullscreen.</p>
+
+<p>If the user presses a key, not listed below, a message similar to 'Exit
+Fullscreen mode with ESC' will be displayed:</p>
+
+<ul><li>left arrow, right arrow, up arrow, down arrow</li>
+<li>space</li>
+<li>shift, control, alt</li>
+<li>page up, page down</li>
+<li>home, end, tab, meta</li></ul>
+
 
             </div>
 
@@ -33,6 +47,12 @@ $(document).ready(jsdocSetup);
 // blit sunflower picture in top left corner of display
 var sunflower = gamejs.image.load("images/sunflower");
 display.blit(sunflower);</pre>
+            </div>
+                        <div>
+                <h4>See</h4>
+                <div>
+                    <a href="https://developer.mozilla.org/en/DOM/Using_full-screen_mode">https://developer.mozilla.org/en/DOM/Using_full-screen_mode</a>
+                </div>
             </div>
             <div class="classoverview">
 

@@ -41,6 +41,20 @@ the most important as it kickstarts your app.</p>
                 <div class="jsdoc-fileoverview">
                     <p>Methods to create, access and manipulate the display Surface.</p>
 
+<h2>Fullscreen mode</h2>
+
+<p>is enabled by a checkbox with the DOM id <code>gjs-fullscreen-toggle</code>. This is
+to prevent malicious scripts from triggering fullscreen.</p>
+
+<p>If the user presses a key, not listed below, a message similar to 'Exit
+Fullscreen mode with ESC' will be displayed:</p>
+
+<ul><li>left arrow, right arrow, up arrow, down arrow</li>
+<li>space</li>
+<li>shift, control, alt</li>
+<li>page up, page down</li>
+<li>home, end, tab, meta</li></ul>
+
 
                 </div>
 
@@ -86,9 +100,9 @@ events.forEach(function(event) {
    }
 });</code></pre>
 
-<p>Note that some events, which would trigger a default browser action, are prevented
-from triggering their default behaviour; i.e. event.preventDefault() is called
-on those specific events, not on all events.</p>
+<p>All events have a type identifier. This event type is in between the values
+of NOEVENT and NUMEVENTS. All user defined events can have the value of
+USEREVENT or higher. It is recommended make sure your event id's follow this system.</p>
 
 
                 </div>
@@ -253,8 +267,9 @@ you would put into your main loop and pass that to <code>fpsCallback()</code>:</
 <p>Use the <code>findRoute(map, from, to, [timeout])</code> function to get the linked list
 leading <code>from</code> a point <code>to</code> another on the given <code>map</code>.</p>
 
-<p>The map must implement interface <code>gamejs.pathfinding.Map</code> (this
-class really holds an example implementation & data for you to study).</p>
+<p>The map must implement interface <code>gamejs.pathfinding.Map</code>. This
+class really holds an example implementation & data for you to study. If you
+understand what this calls provides, you understand this module.</p>
 
 <p>Optionally, the search is canceld after <code>timeout</code> in millseconds.</p>
 
@@ -268,7 +283,7 @@ class really holds an example implementation & data for you to study).</p>
 
                 <h2><a href="./gamejs/utils/arrays/index.html"> gamejs/utils/arrays </a></h2>
                 <div class="jsdoc-fileoverview">
-                    <p>Utility functions for working with Objects</p>
+                    <p>Utility functions for working with Obiects</p>
 
 
                 </div>

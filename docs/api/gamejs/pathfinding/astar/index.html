@@ -27,8 +27,9 @@ $(document).ready(jsdocSetup);
 <p>Use the <code>findRoute(map, from, to, [timeout])</code> function to get the linked list
 leading <code>from</code> a point <code>to</code> another on the given <code>map</code>.</p>
 
-<p>The map must implement interface <code>gamejs.pathfinding.Map</code> (this
-class really holds an example implementation & data for you to study).</p>
+<p>The map must implement interface <code>gamejs.pathfinding.Map</code>. This
+class really holds an example implementation & data for you to study. If you
+understand what this calls provides, you understand this module.</p>
 
 <p>Optionally, the search is canceld after <code>timeout</code> in millseconds.</p>
 
@@ -65,7 +66,13 @@ class really holds an example implementation & data for you to study).</p>
                                 <a href="#Map.prototype.adjacent" class="jsdoc-title"> adjacent</a>(origin)
                             </li>
                                                         <li>
+                                <a href="#Map.prototype.equals" class="jsdoc-title"> equals</a>(a, b)
+                            </li>
+                                                        <li>
                                 <a href="#Map.prototype.estimatedDistance" class="jsdoc-title"> estimatedDistance</a>(pointA, pointB)
+                            </li>
+                                                        <li>
+                                <a href="#Map.prototype.hash" class="jsdoc-title"> hash</a>(a)
                             </li>
                             </ul>
                     </div>
@@ -105,12 +112,12 @@ implementation of Map.</p>
                                 <h4>Parameters</h4>
                                 <table>
                                                                         <tr>
-                                        <td>Array</td>
+                                        <td>Object</td>
                                         <td class="paramname">pointA</td>
                                         <td></td>
                                     </tr>
                                                                         <tr>
-                                        <td>Array</td>
+                                        <td>Object</td>
                                         <td class="paramname">pointB</td>
                                         <td></td>
                                     </tr>
@@ -155,7 +162,46 @@ implementation of Map.</p>
                                 <table>
                                     <tr>
                                         <td>Array</td>
-                                        <td> list of `Point`s accessible from given Point</td>
+                                        <td> list of points accessible from given Point</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="Map.prototype.equals">
+                            <h3>
+                                <span class="itemtitle">Map.prototype.<a id="Map.prototype.equals" href="#Map.prototype.equals" class="itemtitle itemname">equals</a></span>
+                                <span class="itemtitle light">(a, b)</span></h3>
+                            <div>
+                                
+
+
+                            </div>
+                                                        <div>
+                                <h4>Parameters</h4>
+                                <table>
+                                                                        <tr>
+                                        <td>Object</td>
+                                        <td class="paramname">a</td>
+                                        <td>one of the points ot test for equality</td>
+                                    </tr>
+                                                                        <tr>
+                                        <td>Object</td>
+                                        <td class="paramname">b</td>
+                                        <td>... the other point</td>
+                                    </tr>
+                                    </table>
+                            </div>
+                                                        <div>
+                                <h4>Returns</h4>
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                        <td>Wheter the two points are equal.</td>
                                     </tr>
                                 </table>
                             </div>
@@ -170,7 +216,7 @@ implementation of Map.</p>
                                 <span class="itemtitle">Map.prototype.<a id="Map.prototype.estimatedDistance" href="#Map.prototype.estimatedDistance" class="itemtitle itemname">estimatedDistance</a></span>
                                 <span class="itemtitle light">(pointA, pointB)</span></h3>
                             <div>
-                                <p>Estimated lower bound distance between two given points.</p>
+                                <p>Estimated lower bound distance between two, adjacent points.</p>
 
 
                             </div>
@@ -178,12 +224,12 @@ implementation of Map.</p>
                                 <h4>Parameters</h4>
                                 <table>
                                                                         <tr>
-                                        <td>Array</td>
+                                        <td>Object</td>
                                         <td class="paramname">pointA</td>
                                         <td></td>
                                     </tr>
                                                                         <tr>
-                                        <td>Array</td>
+                                        <td>Object</td>
                                         <td class="paramname">pointB</td>
                                         <td></td>
                                     </tr>
@@ -204,6 +250,40 @@ implementation of Map.</p>
 
                                         <!-- tpl-docitem -->
                     <div>
+                        <div class="docitem" docitem="Map.prototype.hash">
+                            <h3>
+                                <span class="itemtitle">Map.prototype.<a id="Map.prototype.hash" href="#Map.prototype.hash" class="itemtitle itemname">hash</a></span>
+                                <span class="itemtitle light">(a)</span></h3>
+                            <div>
+                                
+
+
+                            </div>
+                                                        <div>
+                                <h4>Parameters</h4>
+                                <table>
+                                                                        <tr>
+                                        <td>Object</td>
+                                        <td class="paramname">a</td>
+                                        <td>point</td>
+                                    </tr>
+                                    </table>
+                            </div>
+                                                        <div>
+                                <h4>Returns</h4>
+                                <table>
+                                    <tr>
+                                        <td>String</td>
+                                        <td> hash for the point</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
                         <div class="docitem" docitem="findRoute">
                             <h3>
                                 <span class="itemtitle"><a id="findRoute" href="#findRoute" class="itemtitle itemname">findRoute</a></span>
@@ -212,7 +292,7 @@ implementation of Map.</p>
                                 <p>A* search function.</p>
 
 <p>This function expects a <code>Map</code> implementation and the origin and destination
-points given as [x,y] arrays. If there is a path between the two it will return the optimal
+points given. If there is a path between the two it will return the optimal
 path as a linked list. If there is no path it will return null.</p>
 
 <p>The linked list is in reverse order: the first item is the destination and

@@ -40,9 +40,9 @@ events.forEach(function(event) {
    }
 });</code></pre>
 
-<p>Note that some events, which would trigger a default browser action, are prevented
-from triggering their default behaviour; i.e. event.preventDefault() is called
-on those specific events, not on all events.</p>
+<p>All events have a type identifier. This event type is in between the values
+of NOEVENT and NUMEVENTS. All user defined events can have the value of
+USEREVENT or higher. It is recommended make sure your event id's follow this system.</p>
 
 
             </div>
@@ -53,13 +53,22 @@ on those specific events, not on all events.</p>
                     <h3>Functions</h3>
                     <ul class="propertyoverview">
                                                 <li>
+                            <a href="#clear" class="jsdoc-title"> clear</a>()
+                        </li>
+                                                <li>
                             <a href="#get" class="jsdoc-title"> get</a>()
+                        </li>
+                                                <li>
+                            <a href="#getGrab" class="jsdoc-title"> getGrab</a>()
                         </li>
                                                 <li>
                             <a href="#poll" class="jsdoc-title"> poll</a>()
                         </li>
                                                 <li>
                             <a href="#post" class="jsdoc-title"> post</a>(userEvent)
+                        </li>
+                                                <li>
+                            <a href="#setGrab" class="jsdoc-title"> setGrab</a>(newValue)
                         </li>
                         </ul>
                 </div>
@@ -256,7 +265,16 @@ on those specific events, not on all events.</p>
                             <a href="#MOUSE_WHEEL" class="jsdoc-title"> MOUSE_WHEEL</a>
                         </li>
                                                 <li>
+                            <a href="#NOEVENT" class="jsdoc-title"> NOEVENT</a>
+                        </li>
+                                                <li>
+                            <a href="#NUMEVENTS" class="jsdoc-title"> NUMEVENTS</a>
+                        </li>
+                                                <li>
                             <a href="#QUIT" class="jsdoc-title"> QUIT</a>
+                        </li>
+                                                <li>
+                            <a href="#USEREVENT" class="jsdoc-title"> USEREVENT</a>
                         </li>
                         </ul>
                 </div>
@@ -1323,12 +1341,72 @@ on those specific events, not on all events.</p>
 
                                         <!-- tpl-docitem -->
                     <div>
+                        <div class="docitem" docitem="NOEVENT">
+                            <h3>
+                                <span class="itemtitle"><a id="NOEVENT" href="#NOEVENT" class="itemtitle itemname">NOEVENT</a></span>
+                                </h3>
+                            <div>
+                                
+
+
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="NUMEVENTS">
+                            <h3>
+                                <span class="itemtitle"><a id="NUMEVENTS" href="#NUMEVENTS" class="itemtitle itemname">NUMEVENTS</a></span>
+                                </h3>
+                            <div>
+                                
+
+
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
                         <div class="docitem" docitem="QUIT">
                             <h3>
                                 <span class="itemtitle"><a id="QUIT" href="#QUIT" class="itemtitle itemname">QUIT</a></span>
                                 </h3>
                             <div>
                                 
+
+
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="USEREVENT">
+                            <h3>
+                                <span class="itemtitle"><a id="USEREVENT" href="#USEREVENT" class="itemtitle itemname">USEREVENT</a></span>
+                                </h3>
+                            <div>
+                                
+
+
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="clear">
+                            <h3>
+                                <span class="itemtitle"><a id="clear" href="#clear" class="itemtitle itemname">clear</a></span>
+                                <span class="itemtitle light">()</span></h3>
+                            <div>
+                                <p>Remove all events from the queue</p>
 
 
                             </div>
@@ -1353,6 +1431,31 @@ on those specific events, not on all events.</p>
                                     <tr>
                                         <td>Array</td>
                                         <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="getGrab">
+                            <h3>
+                                <span class="itemtitle"><a id="getGrab" href="#getGrab" class="itemtitle itemname">getGrab</a></span>
+                                <span class="itemtitle light">()</span></h3>
+                            <div>
+                                
+
+
+                            </div>
+                                                        <div>
+                                <h4>Returns</h4>
+                                <table>
+                                    <tr>
+                                        <td>Boolean</td>
+                                        <td> true when the input events are grabbed for
+this application.</td>
                                     </tr>
                                 </table>
                             </div>
@@ -1404,6 +1507,44 @@ on those specific events, not on all events.</p>
                                         <td>the event to post to the queue</td>
                                     </tr>
                                     </table>
+                            </div>
+                            </div>
+                        <hr/>
+                    </div>
+
+                                        <!-- tpl-docitem -->
+                    <div>
+                        <div class="docitem" docitem="setGrab">
+                            <h3>
+                                <span class="itemtitle"><a id="setGrab" href="#setGrab" class="itemtitle itemname">setGrab</a></span>
+                                <span class="itemtitle light">(newValue)</span></h3>
+                            <div>
+                                <p>Your gamejs application will share the mouse and keyboard with other
+elements on the same page. If your program sets the event grab to <code>True</code>,
+gamejs will lock all input into your program.
+It is best to not always grab the input, since it prevents the user from
+doing other things.</p>
+
+
+                            </div>
+                                                        <div>
+                                <h4>Parameters</h4>
+                                <table>
+                                                                        <tr>
+                                        <td>Boolean</td>
+                                        <td class="paramname">newValue</td>
+                                        <td></td>
+                                    </tr>
+                                    </table>
+                            </div>
+                                                        <div>
+                                <h4>Returns</h4>
+                                <table>
+                                    <tr>
+                                        <td>Boolean</td>
+                                        <td> false if grabbing is not supported by this browser.</td>
+                                    </tr>
+                                </table>
                             </div>
                             </div>
                         <hr/>
